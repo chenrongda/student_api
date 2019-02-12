@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="crd.student.api.dao.ClassesDao">
+    <select id="getClassesList" resultType="classes">
+        SELECT * FROM classes
+        <where>
+            <if test="id != null and id !=''">
+                and admin_id = #{id}
+            </if>
+        </where>
+        ORDER BY sort_order ASC
+    </select>
+</mapper>

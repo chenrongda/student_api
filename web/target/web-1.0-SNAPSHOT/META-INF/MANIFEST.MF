@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Implementation-Version: 1.0-SNAPSHOT
+Built-By: crd
+Implementation-Vendor-Id: crd.student.api
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0_151
+Main-Class: ${start-class}
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="crd.student.api.dao.ScoreDao">
+    <select id="getListScore" resultType="crd.student.api.reponse.StudentScore">
+        SELECT sc.id,sc.math_score,sc.chinese_score,sc.english_score,s.name as studentName,s.id as studentId FROM student s LEFT JOIN score sc on s.id = sc.student_id  and sc.exam_id = #{examId}
+        <where>
+            <if test="classesId != null and grade != null ">
+                and s.grade_${grade}_id = #{classesId}
+            </if>
+        </where>
+
+    </select>
+    <select id="getStudentScore" resultType="score">
+        SELECT * FROM score
+        <where>
+            <if test="examId != null and examId !=''">
+                and exam_id = #{examId}
+            </if>
+            <if test="studentId != null and studentId != ''">
+                and student_id = #{studentId}
+            </if>
+        </where>
+    </select>
+</mapper>
